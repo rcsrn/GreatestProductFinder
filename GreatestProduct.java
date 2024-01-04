@@ -5,7 +5,7 @@ public class GreatestProduct {
 
     public static void main(String[] args) {
 	
-	int number = NumberReader.readNumberFromFile("");
+	int number = NumberReader.readNumberFromFile("input_number.txt");
 	
 	finder = new ProductFinder(number);
 	
