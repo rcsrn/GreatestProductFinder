@@ -4,7 +4,7 @@ public class ProductFinder {
     
     private ArrayList listNumber;
     
-    public ProductFinder(Integer number) {
+    public ProductFinder(String number) {
 	
     }
 
