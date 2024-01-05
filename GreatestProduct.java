@@ -9,7 +9,7 @@ public class GreatestProduct {
 	
 	finder = new ProductFinder(number);
 	
-	int greatestProduct = finder.findGreatestProductOf(DIGITS);
+	int greatestProduct = finder.findNumbers(DIGITS);
 	
 	System.out.printf("This is the greatest %d adjacent digits product: %d\n",
 			  DIGITS,
