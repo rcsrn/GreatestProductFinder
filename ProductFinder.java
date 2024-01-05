@@ -19,9 +19,32 @@ public class ProductFinder {
     }   
 
     public Integer[] findNumbers(Integer digits) {
+	result = new Integer[digits];
 	int limit = calculateLimit(digits);
+	if (limit == 0) {
+	    addNumbersToResult(0, digits);
+	    return result;
+	}
+
+	int i = 0;
+	int j = i + 1;
 	
-	
+	while (limit != 0) {
+	    int a = multiplyValues(i, digits);
+	    int b = multiplyValues(j, digits);
+
+	    if (a >= b) {
+		addNumbersToResult(i, digits);
+		j++;
+	    } else {
+		addNumbersToResult(j, digits);
+		i = j;
+		j++;
+	    }
+
+	    limit--;
+	}
+	return result;
     }
 
     private int calculateLimit(int times) {
@@ -36,7 +59,7 @@ public class ProductFinder {
 	    limit++;
 	    i++;
 	}
-	return limit;
+	return limit - 1;
     }
     
     
@@ -49,6 +72,7 @@ public class ProductFinder {
 		times--;
 	    }
 	} catch (Exception abe) {
+	    abe.printStackTrace();
 	    System.out.printf("It is not possible to obtain the result for those values2.\n");
 	    System.exit(1);
 	}
