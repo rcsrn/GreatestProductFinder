@@ -18,24 +18,28 @@ public class ProductFinder {
        
     }   
 
-    public Integer findNumbers(Integer digits) {
-	 result = new Integer[digits];
-	// int i = 0;
-	// int j = i + 1;
-	// int count = numberList.size();
-	// while (count-- != 0) {
-	//     int a = multiplyValues(i, digits);
-	//     int b = multiplyValues(j, digits);
-	//     if (a >= b) {
-		
-	//     } else {
-		
-	//     }
-	// }
-	 
-	return 0;
+    public Integer[] findNumbers(Integer digits) {
+	int limit = calculateLimit(digits);
+	
+	
     }
 
+    private int calculateLimit(int times) {
+	if (times > numberList.size()) {
+	    System.out.printf("It is not possible to obtain the result for those values3.\n");
+	    System.exit(1);
+	}
+
+	int limit = 0;
+	int i = times - 1;
+	while (i < numberList.size()) {
+	    limit++;
+	    i++;
+	}
+	return limit;
+    }
+    
+    
     private void addNumbersToResult(int start, int times) {
 	int j = start;
 	try {
@@ -45,7 +49,7 @@ public class ProductFinder {
 		times--;
 	    }
 	} catch (Exception abe) {
-	    System.out.printf("It is not possible to obtain the result for those values.\n");
+	    System.out.printf("It is not possible to obtain the result for those values2.\n");
 	    System.exit(1);
 	}
     }
@@ -58,7 +62,7 @@ public class ProductFinder {
 		times--;
 	    }
 	} catch (IndexOutOfBoundsException ibe) {
-	    System.out.printf("It is not possible to obtain the result for those values.\n");
+	    ibe.printStackTrace();
 	    System.exit(1);
 	}
 	return product;

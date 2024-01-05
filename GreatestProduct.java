@@ -9,10 +9,10 @@ public class GreatestProduct {
 	
 	finder = new ProductFinder(number);
 	
-	int greatestProduct = finder.findNumbers(DIGITS);
+	Integer[] numbers = finder.findNumbers(DIGITS);
 	
-	System.out.printf("This is the greatest %d adjacent digits product: %d\n",
+	System.out.printf("The %d adjacent digits in the 1000-digit number that have the greatest product are: %s\n",
 			  DIGITS,
-			  greatestProduct);
+			  numbers);
     }
 }
