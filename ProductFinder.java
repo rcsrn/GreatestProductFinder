@@ -16,7 +16,7 @@ public class ProductFinder {
 	    numberList.add(element);
 	}
        
-    }   
+    }
 
     public Integer[] findNumbers(Integer digits) {
 	result = new Integer[digits];
@@ -91,5 +91,11 @@ public class ProductFinder {
 	}
 	return product;
     }
-    
+
+    public Integer getTotalProduct() {
+	int total = 1;
+	for (int i = 0; i < result.length; i++)
+	    total *= result[i];
+	return total;
+    }
 }

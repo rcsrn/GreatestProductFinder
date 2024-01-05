@@ -1,3 +1,5 @@
+import java.lang.StringBuilder;
+
 public class GreatestProduct {
 
     private static ProductFinder finder;
@@ -11,8 +13,14 @@ public class GreatestProduct {
 	
 	Integer[] numbers = finder.findNumbers(DIGITS);
 	
-	System.out.printf("The %d adjacent digits in the 1000-digit number that have the greatest product are: %s\n",
+	StringBuilder builder = new StringBuilder();
+
+	for (int i = 0; i < numbers.length; i++)
+	    builder.append(numbers[i].toString() + " × ");
+	
+	System.out.printf("The %d adjacent digits in the 1000-digit number that have the greatest product are: %s = %s\n",
 			  DIGITS,
-			  numbers);
+			  builder.toString(),
+			  finder.getTotalProduct());
     }
 }
