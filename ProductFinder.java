@@ -2,8 +2,8 @@ import java.util.ArrayList;
 
 public class ProductFinder {
     
-    private ArrayList<Integer> numberList;
-    private Integer[] result;
+    private ArrayList<Long> numberList;
+    private Long[] result;
     
     public ProductFinder(String number) {
 	numberList = new ArrayList<>();
@@ -13,13 +13,12 @@ public class ProductFinder {
 		continue;
 	    int element = 0;
 	    element = number.charAt(i) - '0';
-	    numberList.add(element);
+	    numberList.add((long)element);
 	}
-       
     }
 
-    public Integer[] findNumbers(Integer digits) {
-	result = new Integer[digits];
+    public Long[] findNumbers(int digits) {
+	result = new Long[digits];
 	int limit = calculateLimit(digits);
 	if (limit == 0) {
 	    addNumbersToResult(0, digits);
@@ -30,9 +29,9 @@ public class ProductFinder {
 	int j = i + 1;
 	
 	while (limit != 0) {
-	    int a = multiplyValues(i, digits);
-	    int b = multiplyValues(j, digits);
-
+	    long a = multiplyValues(i, digits);
+	    long b = multiplyValues(j, digits);
+	    
 	    if (a >= b) {
 		addNumbersToResult(i, digits);
 		j++;
@@ -49,7 +48,7 @@ public class ProductFinder {
 
     private int calculateLimit(int times) {
 	if (times > numberList.size()) {
-	    System.out.printf("It is not possible to obtain the result for those values3.\n");
+	    System.out.printf("It is not possible to obtain the result for those values.\n");
 	    System.exit(1);
 	}
 
@@ -72,30 +71,29 @@ public class ProductFinder {
 		times--;
 	    }
 	} catch (Exception abe) {
-	    abe.printStackTrace();
-	    System.out.printf("It is not possible to obtain the result for those values2.\n");
+	    System.out.printf("It is not possible to obtain the result for those values.\n");
 	    System.exit(1);
 	}
     }
     
-    private Integer multiplyValues(int start, int times) {
-	int product = 1;
+    private Long multiplyValues(int start, int times) {
+	long product = 1;
 	try {
 	    for (int i = start; times != 0; i++) {
 		product = product * numberList.get(i);
 		times--;
 	    }
 	} catch (IndexOutOfBoundsException ibe) {
-	    ibe.printStackTrace();
+	    System.out.printf("It is not possible to obtain the result for those values.\n");
 	    System.exit(1);
 	}
 	return product;
     }
 
-    public Integer getTotalProduct() {
-	int total = 1;
+    public Long getTotalProduct() {
+	long total = 1;
 	for (int i = 0; i < result.length; i++)
-	    total *= result[i];
+	    total = total * result[i];
 	return total;
     }
 }
