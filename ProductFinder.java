@@ -1,5 +1,10 @@
 import java.util.ArrayList;
 
+/**
+ * Class designed to find the desired number and calculate the products
+ * of its digits.
+ * @author Rodrigo Casarin
+ */
 public class ProductFinder {
     
     private ArrayList<Long> numberList;
@@ -17,14 +22,20 @@ public class ProductFinder {
 	}
     }
 
+    /*
+     * Find the desired number with the received number of digits using a comparison of two values each time. 
+     */
     public Long[] findNumbers(int digits) {
 	result = new Long[digits];
+	
+	// 'limit' variable represents the possible movements to traverse the number list.
 	int limit = calculateLimit(digits);
+	
 	if (limit == 0) {
 	    addNumbersToResult(0, digits);
 	    return result;
 	}
-
+	
 	int i = 0;
 	int j = i + 1;
 	
@@ -45,7 +56,10 @@ public class ProductFinder {
 	}
 	return result;
     }
-
+    
+    /*
+     * Calculates the number of left positions based on the number of digits of the desired number.
+     */
     private int calculateLimit(int times) {
 	if (times > numberList.size()) {
 	    System.out.printf("It is not possible to obtain the result for those values.\n");
@@ -61,7 +75,9 @@ public class ProductFinder {
 	return limit - 1;
     }
     
-    
+    /*
+     * Adds the digits from the number list to the result starting in the received index (start).
+     */
     private void addNumbersToResult(int start, int times) {
 	int j = start;
 	try {
@@ -75,7 +91,11 @@ public class ProductFinder {
 	    System.exit(1);
 	}
     }
-    
+
+       
+    /*
+     * Multiply digits in the number list starting in the received index (start).
+     */
     private Long multiplyValues(int start, int times) {
 	long product = 1;
 	try {
@@ -90,6 +110,9 @@ public class ProductFinder {
 	return product;
     }
 
+    /*
+     * Calculates the total product of the stored elements in the result array.
+     */
     public Long getTotalProduct() {
 	long total = 1;
 	for (int i = 0; i < result.length; i++)

@@ -2,7 +2,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-
+/**
+ * Class designed to read the information from the input file.
+ * @author Rodrigo Casarin
+ */
 public class NumberReader {
     
     public static String readNumberFromFile(String path) {

@@ -1,5 +1,9 @@
 import java.lang.StringBuilder;
 
+/**
+ * Main class.
+ * @author Rodrigo Casarin
+ */
 public class GreatestProduct {
 
     private static ProductFinder finder;
