@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 /**
- * Class designed to find the desired number and calculate the products
+ * Class designed to find the desired number and calculate the product
  * of its digits.
  * @author Rodrigo Casarin
  */
@@ -23,7 +23,8 @@ public class ProductFinder {
     }
 
     /*
-     * Find the desired number with the received number of digits using a comparison of two values each time. 
+     * Find the desired number with the received number of digits using a
+     * comparison of two values each time. 
      */
     public Long[] findNumbers(int digits) {
 	result = new Long[digits];
@@ -58,7 +59,8 @@ public class ProductFinder {
     }
     
     /*
-     * Calculates the number of left positions based on the number of digits of the desired number.
+     * Calculates the number of left positions based on the number of digits
+     * of the desired number.
      */
     private int calculateLimit(int times) {
 	if (times > numberList.size()) {
@@ -76,7 +78,8 @@ public class ProductFinder {
     }
     
     /*
-     * Adds the digits from the number list to the result starting in the received index (start).
+     * Adds the digits from the number list to the result starting in the
+     * received index (start).
      */
     private void addNumbersToResult(int start, int times) {
 	int j = start;
